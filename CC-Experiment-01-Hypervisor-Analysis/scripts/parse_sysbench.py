@@ -1,34 +1,24 @@
 # parse_sysbench.py
 # Parses sysbench CPU benchmark results and compares Type-1 vs Type-2 hypervisors.
 
-# ---------------------------------------------------------------
-# Recorded Benchmark Results
-# ---------------------------------------------------------------
-
 results = {
     "Proxmox VE (Type-1)": {
-        "execution_time_sec": 10.0004,
-        "total_events":       17169,
-        "events_per_sec":     1716.69,
+        "execution_time_sec": 9.9943,
+        "total_events":       14548,
+        "events_per_sec":     1453.98,
         "latency_min_ms":     0.57,
-        "latency_avg_ms":     0.58,
-        "latency_p95_ms":     0.65,
-        "latency_max_ms":     2.78,
+        "latency_avg_ms":     0.69,
+        "latency_max_ms":     1.24,
     },
     "VMware Workstation (Type-2)": {
         "execution_time_sec": 10.0013,
-        "total_events":       13650,
-        "events_per_sec":     1364.78,
-        "latency_min_ms":     0.67,
-        "latency_avg_ms":     0.73,
-        "latency_p95_ms":     0.89,
-        "latency_max_ms":     4.06,
+        "total_events":       6399,
+        "events_per_sec":     639.70,
+        "latency_min_ms":     1.19,
+        "latency_avg_ms":     1.56,
+        "latency_max_ms":     7.78,
     },
 }
-
-# ---------------------------------------------------------------
-# Print Individual Results
-# ---------------------------------------------------------------
 
 def print_result(name, data):
     print(f"\n{'='*50}")
@@ -39,15 +29,10 @@ def print_result(name, data):
     print(f"  Events / sec     : {data['events_per_sec']}")
     print(f"  Min Latency      : {data['latency_min_ms']} ms")
     print(f"  Avg Latency      : {data['latency_avg_ms']} ms")
-    print(f"  95th Pct Latency : {data['latency_p95_ms']} ms")
     print(f"  Max Latency      : {data['latency_max_ms']} ms")
 
 for name, data in results.items():
     print_result(name, data)
-
-# ---------------------------------------------------------------
-# Compare Results
-# ---------------------------------------------------------------
 
 t1 = results["Proxmox VE (Type-1)"]
 t2 = results["VMware Workstation (Type-2)"]
@@ -70,7 +55,6 @@ metrics = [
     ("Events per Second",    "events_per_sec",      True),
     ("Min Latency (ms)",     "latency_min_ms",      False),
     ("Avg Latency (ms)",     "latency_avg_ms",      False),
-    ("95th Pct Latency (ms)","latency_p95_ms",      False),
     ("Max Latency (ms)",     "latency_max_ms",      False),
 ]
 
