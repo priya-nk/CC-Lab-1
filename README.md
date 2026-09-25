@@ -9,9 +9,9 @@
 4. [Experimental Procedure & Pre-Setups](#4-experimental-procedure--pre-setups)
 5. [Sysbench Screenshot Comparison](#5-sysbench-screenshot-comparison)
 6. [Performance Comparison Table](#6-performance-comparison-table)
-7. [Metric Comparison](#7-metric-comparison)
-8. [Graphs](#8-graphs)
-9. [Takeaway & Conclusion](#9-takeaway--conclusion)
+7. [Graphs](#7-graphs)
+8. [Takeaway & Conclusion](#8-takeaway--conclusion)
+9. [Engineering Recommendation](#9-engineering-recommendation)
 10. [Repository Structure](#10-repository-structure)
 
 ---
@@ -102,35 +102,28 @@ Raw console verification of the benchmark results:
 
 The table below summarizes the exact values recorded during the benchmark:
 
-| Performance Metric | Proxmox VE (Type-1) | VMware Workstation (Type-2) | Performance Delta |
+| Performance Metric | Proxmox VE (Type-1) | VMware Workstation (Type-2) | 
 | :--- | :--- | :--- | :--- |
-| **Total Execution Time** | 10.0004 sec | 10.0013 sec | ~0.003% difference |
-| **Total Events Processed** | 17,169 | 13,650 | +3,519 events (+25.78%) |
-| **Events per Sec (Throughput)** | 1,716.69 | 1,364.78 | +351.91 eps (+25.78%) |
-| **Minimum Latency** | 0.57 ms | 0.67 ms | -0.10 ms (-14.93%) |
-| **Average Latency** | 0.58 ms | 0.73 ms | -0.15 ms (-20.55%) |
-| **Maximum Latency** | 2.78 ms | 4.06 ms | -1.28 ms (-31.53%) |
+| **Total Execution Time** | 9.9943 sec | 10.0006 sec | 
+| **Total Events Processed** | 14,548 | 7,077 | 
+| **Events per Sec (Throughput)** | 1,453.98 | 707.43 | 
+| **Minimum Latency** | 0.57 ms | 1.16 ms | 
+| **Average Latency** | 0.69 ms | 1.41 ms | 
+| **Maximum Latency** | 1.24 ms | 9.00 ms | 
 
 ---
 
-### 7. Metric Comparison
-
-* **CPU Throughput:** Proxmox VE successfully processed **25.78% more events per second** than VMware Workstation within the exact same time frame.
-* **Latency & Responsiveness:** VMware Workstation experienced higher latency across all metrics. Its maximum latency spike (**4.06 ms**) was significantly higher than Proxmox (**2.78 ms**), proving that the host operating system actively interrupts the VM to handle background host processes.
-
----
-
-### 8. Graphs
+### 7. Graphs
 
 Visualizations mapping the throughput, total events, and comprehensive latency metrics can be found in the `images/` directory and are fully rendered in `LAB_REPORT.md` / `performance-analysis.md`.
 
 ---
 
-### 9. Takeaway & Conclusion
+### 8. Takeaway & Conclusion
 
-The empirical data gathered in this lab proves the performance superiority of bare-metal hypervisors. By removing the host operating system from the architecture, Proxmox VE (Type-1) delivered vastly higher CPU throughput (**+25.78%**) and consistently lower latency (**-20.55% average**) than VMware Workstation (Type-2).
 
-#### Engineering Recommendation
+
+#### 9. Engineering Recommendation
 * **Use Type-1 Hypervisors (Proxmox, ESXi):** Ideal for cloud infrastructure, enterprise data centers, and heavy computational workloads.
 * **Use Type-2 Hypervisors (VMware Workstation, VirtualBox):** Ideal for local desktop development, software testing, and educational environments.
 
@@ -139,19 +132,5 @@ The empirical data gathered in this lab proves the performance superiority of ba
 ### 10. Repository Structure
 
 ```text
-Cloud_computing/
-├── README.md                                  # Main Project Overview (This file)
-├── LAB_REPORT.md                              # Detailed lab report (Performance Analysis)
-├── Lab-Manual-Hypervisor-Performance-Analysis (1).docx  
-├── images/                                    
-│   ├── 1.png                                  
-│   ├── 2.png                                  
-│   ├── events_per_second_comparison.png       
-│   ├── latency_comparison.png                 
-│   ├── total_events_comparison.png            
-│   └── overall_performance_dashboard.png      
-└── scripts/                                   
-    ├── benchmark.sh                           
-    ├── generate_plots.py                      
-    └── parse_sysbench.py
+
 ```
