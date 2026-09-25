@@ -11,8 +11,7 @@
 6. [Performance Comparison Table](#6-performance-comparison-table)
 7. [Graphs](#7-graphs)
 8. [Takeaway & Conclusion](#8-takeaway--conclusion)
-9. [Engineering Recommendation](#9-engineering-recommendation)
-10. [Repository Structure](#10-repository-structure)
+9. [Repository Structure](#9-repository-structure)
 
 ---
 
@@ -114,22 +113,62 @@ The table below summarizes the exact values recorded during the benchmark:
 ---
 
 ### 7. Graphs
+Total events comparison:
+<img width="1200" height="750" alt="total_events_comparison" src="https://github.com/user-attachments/assets/7dc54cb7-a984-440d-b23a-193f05c583a0" />
 
-Visualizations mapping the throughput, total events, and comprehensive latency metrics can be found in the `images/` directory and are fully rendered in `LAB_REPORT.md` / `performance-analysis.md`.
+Events per second comparison:
+<img width="1200" height="750" alt="events_per_second_comparison" src="https://github.com/user-attachments/assets/8c33b022-4603-4a3f-8bea-e42ceb620afe" />
+
+Latency comparison:
+<img width="1500" height="900" alt="latency_comparison" src="https://github.com/user-attachments/assets/e94c0a9d-3481-45ab-aa20-c24f68728987" />
+
+Overall Performance:
+<img width="1753" height="1392" alt="overall_performance_dashboard" src="https://github.com/user-attachments/assets/eac86367-387d-4815-ad36-403c4d6cbba4" />
+
 
 ---
 
 ### 8. Takeaway & Conclusion
+#### 1. CPU Throughput
 
+##### Results
+- Proxmox: **14,548 events / 10s ≈ 1,454 events/s**
+- VMware Workstation: **6,399 events / 10s ≈ 640 events/s**
+- Proxmox achieved **~127% higher throughput**.
 
+##### Technical Reason
+- Proxmox runs directly on the hardware using KVM, avoiding the additional desktop host-OS layer present in VMware Workstation.
 
-#### 9. Engineering Recommendation
+#### 2. Latency
+
+##### Results
+- Proxmox: **0.69 ms average**
+- VMware: **1.56 ms average**
+- VMware's average latency was **~2.3× higher**.
+- Maximum latency: **7.78 ms vs 1.24 ms**, showing larger latency spikes in the VMware setup.
+
+#### 3. Why the Difference?
+
+##### Technical Explanation
+- In VMware Workstation, the VM runs as a process managed by the **Windows host OS**.
+- CPU scheduling, memory management, I/O, and host processes can introduce additional overhead and contention.
+- Proxmox's KVM-based architecture provides a more direct virtualization path to the physical hardware.
+
+#### 4. Conclusion
+
+##### Key Findings
+- The experiment demonstrates that **Proxmox performed better under this specific workload and configuration**.
+- It does **not** prove that every Type-1 hypervisor is always faster than every Type-2 hypervisor.
+- Proxmox is designed for **server/data-center virtualization**, while VMware Workstation is primarily designed for **desktop development, testing, and labs**.
+  
+
+#### Engineering Recommendation
 * **Use Type-1 Hypervisors (Proxmox, ESXi):** Ideal for cloud infrastructure, enterprise data centers, and heavy computational workloads.
 * **Use Type-2 Hypervisors (VMware Workstation, VirtualBox):** Ideal for local desktop development, software testing, and educational environments.
 
 ---
 
-### 10. Repository Structure
+### 9. Repository Structure
 
 ```text
 CC-Experiment-01-Hypervisor-Analysis
