@@ -102,14 +102,14 @@ Raw console verification of the benchmark results:
 
 The table below summarizes the exact values recorded during the benchmark:
 
-| Performance Metric | Proxmox VE (Type-1) | VMware Workstation (Type-2) | 
-| :--- | :--- | :--- | :--- |
-| **Total Execution Time** | 9.9943 sec | 10.0006 sec | 
-| **Total Events Processed** | 14,548 | 7,077 | 
-| **Events per Sec (Throughput)** | 1,453.98 | 707.43 | 
-| **Minimum Latency** | 0.57 ms | 1.16 ms | 
-| **Average Latency** | 0.69 ms | 1.41 ms | 
-| **Maximum Latency** | 1.24 ms | 9.00 ms | 
+| Performance Metric | Proxmox VE (Type-1) | VMware Workstation (Type-2) |
+| :--- | :--- | :--- |
+| **Total Execution Time** | 9.9943 sec | 10.0013 sec |
+| **Total Events Processed** | 14,548 | 6,399 |
+| **Events per Sec (Throughput)** | 1,453.98 | 639.70 |
+| **Minimum Latency** | 0.57 ms | 1.19 ms |
+| **Average Latency** | 0.69 ms | 1.56 ms |
+| **Maximum Latency** | 1.24 ms | 7.78 ms |
 
 ---
 
@@ -132,5 +132,34 @@ Visualizations mapping the throughput, total events, and comprehensive latency m
 ### 10. Repository Structure
 
 ```text
-
+CC-Experiment-01-Hypervisor-Analysis
+├── results/
+│   └── performance-anal...
+├── screenshots/
+│   ├── comparison/
+│   │   ├── 01-hypervisor-p...
+│   │   └── readme.md
+│   ├── type1-proxmox/
+│   │   ├── 01-proxmox-das...
+│   │   ├── 02-proxmox-vm...
+│   │   ├── 03-proxmox-vm...
+│   │   ├── 04-proxmox-ub...
+│   │   ├── 05-01-proxmox-...
+│   │   ├── 05-02-proxmox-...
+│   │   ├── 06-proxmox-sys...
+│   │   ├── 07-01proxmox-r...
+│   │   ├── 07-02proxmox-r...
+│   │   ├── 07-03proxmox-r...
+│   │   └── 07-04proxmox-r...
+│   └── type2-vmware/
+│       ├── 01-vmware-vm-...
+│       ├── 02-vmware-vm-...
+│       ├── 03-vmware-syst...
+│       ├── 04-vmware-sysb...
+│       └── README.md
+├── scripts/
+│   ├── benchmark.sh
+│   ├── generate_plots.py
+│   └── parse_sysbench.py
+└── README.md
 ```
