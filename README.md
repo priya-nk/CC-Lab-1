@@ -171,34 +171,44 @@ Overall Performance:
 ### 9. Repository Structure
 
 ```text
-CC-Experiment-01-Hypervisor-Analysis
+CE-Experiment-01-Hypervisor-Analysis/
+│
 ├── results/
-│   └── performance-anal...
+│   └── performance-analysis.md
+│
 ├── screenshots/
+│   │
 │   ├── comparison/
-│   │   ├── 01-hypervisor-p...
-│   │   └── readme.md
+│   │   ├── 01-hypervisor-performance-comparison.png
+│   │   ├── events_per_second_comparison.png
+│   │   ├── latency_comparison.png
+│   │   ├── overall_performance_dashboard.png
+│   │   └── total_events_comparison.png
+│   │
 │   ├── type1-proxmox/
-│   │   ├── 01-proxmox-das...
-│   │   ├── 02-proxmox-vm...
-│   │   ├── 03-proxmox-vm...
-│   │   ├── 04-proxmox-ub...
-│   │   ├── 05-01-proxmox-...
-│   │   ├── 05-02-proxmox-...
-│   │   ├── 06-proxmox-sys...
-│   │   ├── 07-01proxmox-r...
-│   │   ├── 07-02proxmox-r...
-│   │   ├── 07-03proxmox-r...
-│   │   └── 07-04proxmox-r...
+│   │   ├── 01-proxmox-dashboard.jpeg
+│   │   ├── 02-proxmox-vm-configuration.jpeg
+│   │   ├── 03-proxmox-vm-running.jpeg
+│   │   ├── 04-proxmox-ubuntu-console.jpeg
+│   │   ├── 05-01-proxmox-system-configuration.png
+│   │   ├── 05-02-proxmox-system-configuration.png
+│   │   ├── 06-proxmox-bench-result.png
+│   │   ├── 07-01proxmox-resource-monitoring.png
+│   │   ├── 07-02-proxmox-resource-monitoring.png
+│   │   ├── 07-03-proxmox-resource-monitoring.png
+│   │   └── 07-04proxmox-resource-monitoring.png
+│   │
 │   └── type2-vmware/
-│       ├── 01-vmware-vm-...
-│       ├── 02-vmware-vm-...
-│       ├── 03-vmware-syst...
-│       ├── 04-vmware-sysb...
+│       ├── 01-vmware-vm-configuration.png
+│       ├── 02-vmware-vm-running.png
+│       ├── 03-vmware-system-configuration.jpeg
+│       ├── 04-vmware-sysbench-result.jpeg
 │       └── README.md
+│
 ├── scripts/
 │   ├── benchmark.sh
 │   ├── generate_plots.py
 │   └── parse_sysbench.py
+│
 └── README.md
 ```
