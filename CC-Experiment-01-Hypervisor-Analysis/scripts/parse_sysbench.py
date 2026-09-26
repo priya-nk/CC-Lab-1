@@ -3,7 +3,7 @@
 
 results = {
     "Proxmox VE (Type-1)": {
-        "execution_time_sec": 9.9943,
+        "execution_time_sec": ,10.0030
         "total_events":       14548,
         "events_per_sec":     1453.98,
         "latency_min_ms":     0.57,
