@@ -92,8 +92,12 @@ sysbench cpu --cpu-max-prime=20000 run
 
 Raw console verification of the benchmark results:
 
-* **Proxmox VE Output:** `images/1.png`
-* **VMware Workstation Output:** `images/2.png`
+* **Proxmox VE Output:**
+ <img width="1920" height="1020" alt="06-proxmox-sysbench-result" src="https://github.com/user-attachments/assets/f8871d7b-ad52-4645-a399-44c9e82bcfb0" />
+
+* **VMware Workstation Output:**
+<img width="1280" height="720" alt="04-vmware-sysbench-result" src="https://github.com/user-attachments/assets/1c074507-2512-4517-9f3c-54404ee4f17f" />
+ 
 
 ---
 
