@@ -110,15 +110,22 @@ Raw console verification of the benchmark results:
 ### 6. Performance Comparison Table
 
 The table below summarizes the exact values recorded during the benchmark:
+# Hypervisor Performance Comparison
 
-| Performance Metric | Proxmox VE (Type-1) | VMware Workstation (Type-2) |
-| :--- | :--- | :--- |
-| **Total Execution Time** | 9.9943 sec | 10.0013 sec |
-| **Total Events Processed** | 14,548 | 6,399 |
-| **Events per Sec (Throughput)** | 1,453.98 | 639.70 |
-| **Minimum Latency** | 0.57 ms | 1.19 ms |
-| **Average Latency** | 0.69 ms | 1.56 ms |
-| **Maximum Latency** | 1.24 ms | 7.78 ms |
+| Performance Metric | Proxmox VE (Type-1) | VMware Workstation (Type-2) | Delta | Percentage Change | Winner |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Execution Time** | 10.003 sec | 10.0013 sec | +0.0017 sec | — | — |
+| **Total Events** | 14,548 | 6,399 | +8,149.00 | +127.35% | **Proxmox VE** |
+| **Events / sec** | 1,453.98 | 639.70 | +814.28 | +127.29% | **Proxmox VE** |
+| **Min Latency (ms)** | 0.57 | 1.19 | -0.62 | -52.10% | **Proxmox VE** |
+| **Avg Latency (ms)** | 0.69 | 1.56 | -0.87 | -55.77% | **Proxmox VE** |
+| **Max Latency (ms)** | 1.24 | 7.78 | -6.54 | -84.06% | **Proxmox VE** |
+
+---
+
+### Key Takeaway
+
+Proxmox VE (Type-1) significantly outperformed VMware Workstation (Type-2) across all metrics, achieving **127.29% higher throughput** and **55.77% lower average latency**.
 
 ---
 
