@@ -38,7 +38,7 @@ The primary objectives of this Cloud Computing laboratory experiment are:
 - **Architecture**: Operates as a software application on top of an existing host OS (e.g., Windows).
 - **Mechanism**: Privileged guest CPU operations undergo a double translation process through the VMware engine and the host OS kernel.
 - **Impact**: The host OS scheduler introduces thread preemptions as the VM competes with background desktop services, leading to higher baseline latency.
-<img width="824" height="705" alt="image" src="https://github.com/user-attachments/assets/6eb21f62-2c9a-4f5e-8be8-4f3ae3635fde" />
+<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/fb4cdbc8-99e4-4902-8229-d8eea5ca7a61" />
 
 ---
 
@@ -69,7 +69,13 @@ To guarantee scientific accuracy and eliminate resource skewing, identical confi
    - **Memory**: 2048 MiB.
    - **Network**: Assigned to `vmbr0` bridge.
 4. **Installation**: Started the VM, opened the Console, and completed the standard Ubuntu Normal Installation.
-5. **Verification**: Used `hostnamectl`, `lscpu`, `free -h`, and `df -h` to verify 2 Cores, 2GB RAM, and 20GB Disk.
+5. **Verification**: verify 2 Cores, 2GB RAM, and 20GB Disk:
+   ``` bash
+   hostnamectl # Displays and modifies system hostname and detailed OS/kernel metadata
+   lscpu # Lists CPU architecture details (cores, threads, sockets, cache sizes)
+   free -h # Shows total, used, and available RAM/Swap in human-readable units (e.g., GB)
+   df -h # Displays disk space usage across mounted filesystems in human-readable units
+   ```
 
 ### Part B: Type-2 Hypervisor Setup (VMware Workstation)
 1. **Access**: Launched VMware Workstation and selected "Create a New Virtual Machine" (Typical Configuration).
@@ -83,9 +89,9 @@ To guarantee scientific accuracy and eliminate resource skewing, identical confi
 ### Part C: Benchmark Execution
 On both machines, the following commands were executed to run the test:
 ```bash
-sudo apt update
-sudo apt install sysbench -y
-sysbench cpu --cpu-max-prime=20000 run
+sudo apt update # Refreshes the local package index to fetch the latest available package lists from the repositories
+sudo apt install sysbench -y # Installs the sysbench benchmarking tool automatically (-y skips the prompt)
+sysbench cpu --cpu-max-prime=20000 run # Benchmarks CPU performance by calculating prime numbers up to 20,000
 ```
 
 ### 5. Sysbench Screenshot Comparison
